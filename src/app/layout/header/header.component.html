@@ -1,0 +1,11 @@
+<nav>
+    <label class="logo">CodingBlogs</label>
+    <ul [ngClass]="isShowMenu ? 'show' : ''">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Topics</a></li>
+    </ul>
+    <label id="icon">
+        <i class="fa-solid fa-bars" (click)="onMenu()"></i>
+    </label>
+</nav>
