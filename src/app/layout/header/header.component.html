@@ -1,11 +1,49 @@
-<nav>
-    <label class="logo">CodingBlogs</label>
-    <ul [ngClass]="isShowMenu ? 'show' : ''">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Topics</a></li>
-    </ul>
-    <label id="icon">
-        <i class="fa-solid fa-bars" (click)="onMenu()"></i>
-    </label>
+<nav class="w-full h-20 grid">
+    <div class="flex justify-between items-center mx-3 md:mx-12 lg:mx-24">
+        <div class="flex items-center">
+            <label class="text-2xl mr-2.5 md:hidden">
+                <img src="/assets/icons/menu.png" alt="menu" *ngIf="!isShowMenu" (click)="onMenu()">
+                <img src="/assets/icons/close.png" alt="close" *ngIf="isShowMenu" (click)="onMenu()">
+            </label>
+            <label class="text-slate-500 text-3xl"> Code<span class="plus">Plus</span></label>
+        </div>
+        <ul class="flex flex-col md:flex-row py-3 nav-menus" [ngClass]="isShowMenu ? 'show' : ''">
+            <li class="flex items-center justify-center"><a class="text-slate-500 hover:text-slate-700 font-medium"
+                routerLink="">Home</a></li>
+            <li class="flex items-center justify-center relative"><a
+                    class="text-slate-500 hover:text-slate-700 font-medium cursor-pointer" (mouseover)="onTopics()"
+                    (click)="onTopics()">Topics</a><img class="w-4 h-4 ml-1.5" src="/assets/icons/down.png" alt="img"
+                    *ngIf="!isTopics"> <img class="w-4 h-4 ml-1.5" src="/assets/icons/up.png" alt="img"
+                    *ngIf="isTopics">
+                <ul class="absolute p-4 hidden md:block" *ngIf="isTopics" (mouseleave)="onTopics()">
+                    <li class="text-slate-500 mb-2">HTML</li>
+                    <li class="text-slate-500 mb-2">CSS</li>
+                    <li class="text-slate-500 mb-2">JavaScript</li>
+                    <li class="text-slate-500 mb-2">Angular</li>
+                </ul>
+            </li>
+            <ul class="md:hidden" *ngIf="isTopics" (mouseleave)="onTopics()">
+                <li class="text-slate-500 mb-2">HTML</li>
+                <li class="text-slate-500 mb-2">CSS</li>
+                <li class="text-slate-500 mb-2">JavaScript</li>
+                <li class="text-slate-500 mb-2">Angular</li>
+            </ul>
+            <li class="flex items-center justify-center"><a class="text-slate-500 hover:text-slate-700 font-medium"
+                    routerLink="/write">Write</a><img class="w-4 h-4 ml-1.5" src="/assets/icons/edit.png" alt="img"></li>
+            <li class="flex items-center justify-center"><a class="text-slate-500 hover:text-slate-700 font-medium"
+                    href="#">Faqs</a><img class="w-4 h-4 ml-1.5" src="/assets/icons/question-square.png" alt="img"></li>
+        </ul>
+        <div class="py-3 flex sec-right">
+            <img class="pr-3 border-r cursor-pointer" src="/assets/icons/search.png" alt="search"
+                (mouseover)="onSearch()" (click)="onSearch()">
+            <img class="pl-3 border-l cursor-pointer" src="/assets/icons/user.png" alt="user">
+        </div>
+    </div>
+    <div class="flex justify-center items-center w-full h-14 searchDiv" *ngIf="isSearch" (mouseleave)="onSearch()">
+        <input type="text"
+            class="md:w-1/4 py-1 px-3 rounded ring-1 ring-blue-200 focus:ring-blue-500 focus:outline-none"
+            placeholder="Search Here...">
+        <button
+            class="bg-sky-300 text-white hover:bg-sky-500 py-1 px-5 rounded ml-2 tracking-wide md:w-40">Search</button>
+    </div>
 </nav>

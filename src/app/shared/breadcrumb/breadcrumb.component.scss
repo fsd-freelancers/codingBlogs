@@ -1,0 +1,17 @@
+.breadcrumb li {
+    color: #007bff;
+    margin: 0 4px;
+
+    &:not(:last-child){
+       text-decoration: underline;
+       cursor: pointer;
+    }
+
+    &:not(:last-child)::after {
+        content: ' / ';
+    }
+
+    &:last-child {
+        color: #64748b;
+    }
+}

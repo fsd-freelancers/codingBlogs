@@ -8,9 +8,19 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
 
   public isShowMenu: boolean = false;
+  public isSearch: boolean = false;
+  public isTopics: boolean = false;
 
   public onMenu() {
     this.isShowMenu = !this.isShowMenu;
+  }
+
+  public onSearch() {
+    this.isSearch = !this.isSearch;
+  }
+
+  public onTopics() {
+    this.isTopics = !this.isTopics;
   }
 
 }
