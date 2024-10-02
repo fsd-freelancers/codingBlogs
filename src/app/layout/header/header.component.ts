@@ -10,6 +10,7 @@ export class HeaderComponent {
   public isShowMenu: boolean = false;
   public isSearch: boolean = false;
   public isTopics: boolean = false;
+  public isUserProfile: boolean = false;
 
   public onMenu() {
     this.isShowMenu = !this.isShowMenu;
@@ -21,6 +22,10 @@ export class HeaderComponent {
 
   public onTopics() {
     this.isTopics = !this.isTopics;
+  }
+
+  public onUserProfile() {
+    this.isUserProfile = !this.isUserProfile;
   }
 
 }

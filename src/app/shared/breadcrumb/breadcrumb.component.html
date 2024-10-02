@@ -1,6 +1,6 @@
 <div class="">
     <ul class="flex breadcrumb">
         <li routerLink="">Home</li>
-        <li>Blog</li>
+        <li *ngFor="let u of url">{{u}}</li>
     </ul>
 </div>

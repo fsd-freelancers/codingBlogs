@@ -6,6 +6,7 @@ import { ContentLayoutComponent } from './content-layout/content-layout.componen
 import { RouterModule } from '@angular/router';
 import { HomeSidenavComponent } from './home-sidenav/home-sidenav.component';
 import { SharedModule } from '../shared/shared.module';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -14,15 +15,17 @@ import { SharedModule } from '../shared/shared.module';
     HeaderComponent,
     HomeComponent,
     ContentLayoutComponent,
-    HomeSidenavComponent
+    HomeSidenavComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     SharedModule
   ],
-  exports:[
-    HeaderComponent
+  exports: [
+    HeaderComponent,
+    FooterComponent
   ]
 })
 export class LayoutModule { }

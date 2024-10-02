@@ -1,13 +1,13 @@
 <div class="mx-3 md:mx-12 lg:mx-24">
-    <div class="my-4">
+    <div class="mt-4 mb-3">
         <app-breadcrumb></app-breadcrumb>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="col-span-2 md:col-span-3">
             <router-outlet></router-outlet>
         </div>
-        <div class="col-span-2 md:col-span-1">
-            <app-home-sidenav></app-home-sidenav>
+        <div class="col-span-2 md:col-span-1 w-full relative">
+            <app-home-sidenav class="sticky top-24"></app-home-sidenav>
         </div>
     </div>
 </div>

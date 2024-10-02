@@ -4,7 +4,8 @@ nav {
     position: relative;
 
     .plus {
-        color: #007bff;
+        // color: #007bff;
+        color: #38bdf8;
         opacity: 0;
         animation: pulse 1.5s infinite;
     }
@@ -21,15 +22,24 @@ nav {
 
         ul {
             background-color: #fefeff;
-            top: 32px;
+            top: 42px;
             box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
             z-index: 999;
+            border-top: 3px solid #38bdf8;
+
+            li {
+                cursor: pointer;
+
+                &:hover {
+                    color: #38bdf8;
+                }
+            }
         }
     }
 
     @keyframes pulse {
         0% {
-            opacity: 0.4;
+            opacity: 0.5;
         }
 
         50% {
@@ -37,14 +47,29 @@ nav {
         }
 
         100% {
-            opacity: 0.4;
+            opacity: 0.5;
+        }
+    }
+
+    .sec-right {
+        position: relative;
+
+        .userProfile {
+            width: 14vw;
+            position: absolute;
+            top: 50px;
+            right: -4px;
+            background-color: #fefeff;
+            border-top: 2px solid #38bdf8;
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+            z-index: 999;
         }
     }
 
     .searchDiv {
         position: absolute;
         background-color: #fefeff;
-        top: 81px;
+        top: 63px;
         box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     }
 }
@@ -58,7 +83,7 @@ nav {
             height: 100vh;
             background-color: #ffffff;
             position: fixed;
-            top: 81px;
+            top: 63px;
             left: -100%;
             text-align: center;
             transition: all .5s;
@@ -74,6 +99,13 @@ nav {
 
         .show {
             left: 0;
+        }
+    }
+
+    .sec-right {
+
+        .userProfile {
+            right: 0 !important;
         }
     }
 
