@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { RouterModule } from '@angular/router';
 import { LoaderComponent } from './loader/loader.component';
+import { SkeletonLoaderComponent } from './skeleton-loader/skeleton-loader.component';
 
 
 
 @NgModule({
   declarations: [
     BreadcrumbComponent,
-    LoaderComponent
+    LoaderComponent,
+    SkeletonLoaderComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { LoaderComponent } from './loader/loader.component';
   ],
   exports: [
     BreadcrumbComponent,
-    LoaderComponent
+    LoaderComponent,
+    SkeletonLoaderComponent
   ]
 })
 export class SharedModule { }
