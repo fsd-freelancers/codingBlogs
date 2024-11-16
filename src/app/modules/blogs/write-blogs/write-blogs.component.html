@@ -63,9 +63,8 @@
             </div> -->
 
             <div class="mt-8 flex items-center justify-end gap-x-6">
-                <button type="button" class="text-sm font-semibold leading-6 text-gray-900"
-                    (click)="blogForm.reset()">Cancel</button>
-                <button type="button" [disabled]="isLoading" (click)="createBlog()" class="primary-btn">Save</button>
+                <button class="text-sm font-semibold leading-6 text-gray-900" (click)="blogForm.reset()">Cancel</button>
+                <button [disabled]="isLoading" (click)="createBlog()" class="primary-btn">Save</button>
             </div>
         </div>
 

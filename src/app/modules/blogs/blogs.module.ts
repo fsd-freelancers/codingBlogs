@@ -8,6 +8,7 @@ import { ViewBlogsComponent } from './view-blogs/view-blogs.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchBlogsComponent } from './search-blogs/search-blogs.component';
+import { MatModule } from 'src/app/material/mat.module';
 
 
 
@@ -24,7 +25,8 @@ import { SearchBlogsComponent } from './search-blogs/search-blogs.component';
     SharedModule,
     NgSelectModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatModule
   ]
 })
 export class BlogsModule { }
