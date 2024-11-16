@@ -1,9 +1,11 @@
+<app-loader *ngIf="isLoading"></app-loader>
+
 <div class="mx-3 md:mx-12 lg:mx-24">
     <div class="mt-4 mb-3">
         <app-breadcrumb></app-breadcrumb>
     </div>
 
-    <form class="w-full p-10 rounded">
+    <form class="w-full p-10 rounded" [formGroup]="blogForm">
 
         <div class="mb-5 text-2xl">
             <h1 class="text-black font-medium text-center">Write Your Blog</h1>
@@ -14,16 +16,16 @@
                 <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Blog Title</label>
                 <div class="mt-2">
                     <input type="text"
-                        class="py-2 px-4 w-full outline-none rounded ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-sky-500"
-                        placeholder="Title">
+                        class="py-2 px-4 w-full outline-none rounded ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-sky-500"
+                        placeholder="Title" formControlName="title">
                 </div>
             </div>
 
             <div class="mb-4">
                 <label for="about" class="block text-sm font-medium leading-6 text-gray-900">Blog Description</label>
                 <div class="mt-2">
-                    <textarea id="about" name="about" rows="5"
-                        class="py-2 px-4 w-full outline-none rounded ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-sky-500"></textarea>
+                    <textarea id="about" name="about" rows="5" formControlName="details"
+                        class="py-2 px-4 w-full outline-none rounded ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-sky-500"></textarea>
                 </div>
                 <p class="text-sm leading-6 text-gray-600">Share your thoughts on the topic.</p>
             </div>
@@ -31,17 +33,13 @@
             <div class="mb-4">
                 <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Blog Topic</label>
                 <div class="mt-2">
-                    <select name="Topic"
-                        class="py-2 px-4 w-full outline-none rounded ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-sky-500">
-                        <option selected disabled>Select Topic</option>
-                        <option>HTML</option>
-                        <option>CSS</option>
-                        <option>JavaScript</option>
-                    </select>
+                    <ng-select [multiple]="true" placeholder="Select Tags" formControlName="tags">
+                        <ng-option *ngFor="let tag of tags" [value]="tag">{{tag}}</ng-option>
+                    </ng-select>
                 </div>
             </div>
 
-            <div class="">
+            <!-- <div class="">
                 <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Cover photo</label>
                 <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-300 px-6 py-8">
                     <div class="text-center">
@@ -62,12 +60,12 @@
                         <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="mt-8 flex items-center justify-end gap-x-6">
-                <button type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
-                <button type="button"
-                    class="rounded-md bg-sky-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-600">Save</button>
+                <button type="button" class="text-sm font-semibold leading-6 text-gray-900"
+                    (click)="blogForm.reset()">Cancel</button>
+                <button type="button" [disabled]="isLoading" (click)="createBlog()" class="primary-btn">Save</button>
             </div>
         </div>
 

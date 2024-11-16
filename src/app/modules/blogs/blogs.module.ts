@@ -1,23 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LatestBlogsComponent } from './latest-blogs/latest-blogs.component';
 import { WriteBlogsComponent } from './write-blogs/write-blogs.component';
 import { BlogDetailsComponent } from './blog-details/blog-details.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ViewBlogsComponent } from './view-blogs/view-blogs.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchBlogsComponent } from './search-blogs/search-blogs.component';
 
 
 
 @NgModule({
   declarations: [
-    LatestBlogsComponent,
     WriteBlogsComponent,
-    BlogDetailsComponent
+    BlogDetailsComponent,
+    ViewBlogsComponent,
+    SearchBlogsComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    NgSelectModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class BlogsModule { }

@@ -22,10 +22,9 @@ nav {
 
         ul {
             background-color: #fefeff;
-            top: 42px;
-            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+            top: 36px;
+            box-shadow: #00000005 0 1px 3px, #0000001a 0 0 0 1px;
             z-index: 999;
-            border-top: 3px solid #38bdf8;
 
             li {
                 cursor: pointer;
@@ -55,13 +54,13 @@ nav {
         position: relative;
 
         .userProfile {
-            width: 14vw;
+            width: 12vw;
             position: absolute;
-            top: 50px;
+            top: 48px;
             right: -4px;
             background-color: #fefeff;
-            border-top: 2px solid #38bdf8;
-            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+            // border-top: 2px solid #38bdf8;
+            box-shadow: #00000005 0 1px 3px, #0000001a 0 0 0 1px;
             z-index: 999;
         }
     }
@@ -106,6 +105,7 @@ nav {
 
         .userProfile {
             right: 0 !important;
+            width: 40vw !important;
         }
     }
 
