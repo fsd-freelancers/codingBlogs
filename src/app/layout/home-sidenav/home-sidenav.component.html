@@ -1,4 +1,4 @@
-<div class="mt-4 border p-4 rounded" style="background-color: #ffffff;">
+<div class="mt-4 border p-4 rounded shadow-sm" style="background-color: #ffffff;">
     <div class="text-2xl mb-4">
         <h1 class="text-black font-medium">Table of Content</h1>
     </div>
@@ -17,26 +17,12 @@
     </ul>
 </div>
 
-<div class="mt-6 border p-4 rounded" style="background-color: #ffffff;">
+<div class="mt-6 border p-4 rounded shadow-sm" style="background-color: #ffffff;">
     <div class="">
         <h1 class="text-black text-2xl font-medium">Popular Tags</h1>
     </div>
     <div class="flex flex-wrap text-sm my-4">
-        <p class="bg-sky-400 text-white p-1 m-1 rounded hover:underline">#web</p>
-        <p class="bg-sky-400 text-white p-1 m-1 rounded hover:underline">#frontend</p>
-        <p class="bg-sky-400 text-white p-1 m-1 rounded hover:underline">#backend</p>
-        <p class="bg-sky-400 text-white p-1 m-1 rounded hover:underline">#fullstack</p>
-        <p class="bg-sky-400 text-white p-1 m-1 rounded hover:underline">#html5</p>
-        <p class="bg-sky-400 text-white p-1 m-1 rounded hover:underline">#css3</p>
-        <p class="bg-sky-400 text-white p-1 m-1 rounded hover:underline">#JavaScript</p>
-        <p class="bg-sky-400 text-white p-1 m-1 rounded hover:underline">#typeScript</p>
-        <p class="bg-sky-400 text-white p-1 m-1 rounded hover:underline">#react js</p>
-        <p class="bg-sky-400 text-white p-1 m-1 rounded hover:underline">#angular</p>
-        <p class="bg-sky-400 text-white p-1 m-1 rounded hover:underline">#vue js</p>
-        <p class="bg-sky-400 text-white p-1 m-1 rounded hover:underline">#node js</p>
-        <p class="bg-sky-400 text-white p-1 m-1 rounded hover:underline">#java</p>
-        <p class="bg-sky-400 text-white p-1 m-1 rounded hover:underline">#python</p>
-        <p class="bg-sky-400 text-white p-1 m-1 rounded hover:underline">#c</p>
-        <p class="bg-sky-400 text-white p-1 m-1 rounded hover:underline">#c++</p>
+        <a class="bg-sky-400 text-white p-1 m-1 rounded hover:underline" [routerLink]="'/blogs/'+tag"
+            *ngFor="let tag of tags">#{{tag}}</a>
     </div>
 </div>

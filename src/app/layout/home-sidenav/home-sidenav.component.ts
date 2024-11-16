@@ -10,31 +10,50 @@ import { Router } from '@angular/router';
   styleUrls: ['./home-sidenav.component.scss']
 })
 export class HomeSidenavComponent {
+  public tags = [
+    'web', 'frontend', 'backend', 'fullstack', 'html5', 'css3', 'JavaScript', 'typeScript', 'react', 'angular', 'vue', 'node', 'nestjs', 'java', 'python', 'c', 'c++'
+  ]
 
-  constructor(private scrollService: ScrollService, private router: Router) {  }
+  constructor(private scrollService: ScrollService, private router: Router) { }
 
   onStories() {
-    this.scrollService.triggerScrollStories();
+    if (this.router.url === '/blogs') {
+      this.scrollService.triggerScrollStories();
+    } else {
+      this.router.navigate(['/blogs/featured'])
+    }
   }
 
   onLatest() {
     if (this.router.url === '/blogs') {
       this.scrollService.triggerScrollLatest();
     } else {
-      this.router.navigate(['latest-blogs'])
+      this.router.navigate(['/blogs/latest'])
     }
   }
 
   onFrontend() {
-    this.scrollService.triggerScrollFrontend();
+    if (this.router.url === '/blogs') {
+      this.scrollService.triggerScrollFrontend();
+    } else {
+      this.router.navigate(['/blogs/frontend'])
+    }
   }
 
   onBackend() {
-    this.scrollService.triggerScrollBackend();
+    if (this.router.url === '/blogs') {
+      this.scrollService.triggerScrollBackend();
+    } else {
+      this.router.navigate(['/blogs/backend'])
+    }
   }
 
   onFullstack() {
-    this.scrollService.triggerScrollFullstack();
+    if (this.router.url === '/blogs') {
+      this.scrollService.triggerScrollFullstack();
+    } else {
+      this.router.navigate(['/blogs/fullstack'])
+    }
   }
 
 }

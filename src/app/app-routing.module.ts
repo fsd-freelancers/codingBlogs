@@ -4,18 +4,20 @@ import { ContentLayoutComponent } from './layout/content-layout/content-layout.c
 import { WriteBlogsComponent } from './modules/blogs/write-blogs/write-blogs.component';
 import { BlogDetailsComponent } from './modules/blogs/blog-details/blog-details.component';
 import { HomeComponent } from './layout/home/home.component';
-import { LatestBlogsComponent } from './modules/blogs/latest-blogs/latest-blogs.component';
 import { FaqsComponent } from './features/faqs/faqs.component';
+import { ViewBlogsComponent } from './modules/blogs/view-blogs/view-blogs.component';
+import { SearchBlogsComponent } from './modules/blogs/search-blogs/search-blogs.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'blogs', pathMatch: 'full' },
   {
     path: 'blogs', component: ContentLayoutComponent, children: [
       { path: '', component: HomeComponent },
-      { path: 'details', component: BlogDetailsComponent },
+      { path: 'details/:blogId', component: BlogDetailsComponent },
     ]
   },
-  { path: 'latest-blogs', component: LatestBlogsComponent },
+  { path: 'blogs/:tag', component: ViewBlogsComponent },
+  { path: 'blogs/search/:searchedText', component: SearchBlogsComponent },
   { path: 'write', component: WriteBlogsComponent },
   { path: 'faqs', component: FaqsComponent },
 ];

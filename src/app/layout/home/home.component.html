@@ -1,118 +1,66 @@
-<!-- <p routerLink="/details">home works!</p> -->
+<app-loader *ngIf="isLoading"></app-loader>
+
 <div class="my-4 text-2xl" #stories>
     <h1 class="text-black font-medium">Featured Stories</h1>
 </div>
 
 <!-- section 1 -->
 <div class="grid grid-cols-2 gap-4 px-2">
-    <div class="col-span-2 md:col-span-1 border rounded overflow-hidden" routerLink="/blogs/details">
+    <div class="col-span-2 md:col-span-1 shadow-sm border rounded overflow-hidden"
+        *ngFor="let blog of blogs?.featured_blogs">
         <div class="w-full">
-            <div class="h-2/4 imgDiv">
-                <img class="w-full h-full" src="/assets/images/home-img-3.png" alt="">
+            <div class="h-48 imgDiv">
+                <img class="w-full h-full" [src]="'/assets/images/'+blog?.image">
             </div>
-            <div class="px-4 py-8 bg-white">
-                <p class="text-xs"><span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline">#CSS</span><span
-                        class="bg-sky-400 text-white p-1 ml-1 rounded hover:underline">#JavaScript</span></p>
-                <h1 class="my-4 text-black text-xl blog-title cursor-pointer">Let Users Know What’s Going on
-                    with the Blazor Notification Component</h1>
-                <div class="flex justify-between mt-8">
-                    <p class="text-sm text-slate-500 flex flex-col md:flex-row">
-                        <span>by<span class="text-sky-400 md:px-1 md:border-r">@CodePlus admin</span></span>
-                        <span class="flex items-center"><i class="far fa-clock text-sm md:pl-1"></i> <span class="ml-1">December
-                                10, 2023</span></span>
+            <div class="px-4 py-6 bg-white flex flex-col gap-3">
+                <p class="text-xs">
+                    <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
+                        *ngFor="let tag of blog?.tags">#{{tag}}</span>
+                </p>
+                <h1 class="my-4 text-black text-xl blog-title cursor-pointer"><a
+                        [routerLink]="'/blogs/details/'+blog?.id">{{blog?.title}}</a></h1>
+                <div class="flex justify-between items-center">
+                    <p class="text-sm text-slate-500 flex flex-col gap-1">
+                        <span>by<span class="text-sky-400"> &#64;{{blog?.author?.username}}</span></span>
+                        <span class="flex items-center"><i class="far fa-clock text-sm mr-1"></i>
+                            <span>{{blog?.createdAt | date}}</span></span>
                     </p>
-                    <p class="text-sm text-slate-500 flex items-center"><i class="fa fa-share mr-1"></i>Share</p>
+                    <p class="text-sm text-slate-500 flex items-center cursor-pointer hover:text-slate-600"
+                        (click)="_sharedService.shareBlog(blog)"><i class="fa fa-share mr-1"></i>Share</p>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="col-span-2 md:col-span-1 border rounded overflow-hidden">
-        <div class="w-full">
-            <div class="h-2/4 imgDiv">
-                <img class="w-full h-full" src="/assets/images/home-img-1.png" alt="">
-            </div>
-            <div class="px-4 py-8 bg-white">
-                <p class="text-xs"><span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline">#web</span><span
-                        class="bg-sky-400 text-white p-1 mx-1 rounded hover:underline">#angular</span><span
-                        class="bg-sky-400 text-white p-1 ml-1 rounded hover:underline">#JavaScript</span></p>
-                <h1 class="my-4 text-black text-xl blog-title cursor-pointer">How to Blend Reporting and Angular
-                    Applications Seamlessly</h1>
-                <div class="flex justify-between mt-8">
-                    <p class="text-sm text-slate-500 flex flex-col md:flex-row">
-                        <span>by<span class="text-sky-400 md:px-1 md:border-r">@CodePlus admin</span></span>
-                        <span class="flex items-center"><i class="far fa-clock text-sm md:pl-1"></i> <span class="ml-1">December
-                                10, 2023</span></span>
-                    </p>
-                    <p class="text-sm text-slate-500 flex items-center cursor-pointer"><i
-                            class="fa fa-share mr-1"></i>Share</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </div>
 
 <!-- section 2 -->
 <div class="my-4 flex justify-between items-center" #latest>
     <h1 class="text-black text-2xl font-medium">Latest Blogs</h1>
-    <p><a class="text-sky-500 hover:underline cursor-pointer" routerLink="/latest-blogs">View More</a></p>
+    <p><a class="text-sky-500 hover:underline cursor-pointer" routerLink="/blogs/latest">View More</a></p>
 </div>
 
 <div class="grid grid-cols-3 gap-4 px-2">
-    <div class="col-span-3 md:col-span-1 border rounded overflow-hidden">
+    <div class="col-span-3 md:col-span-1 shadow-sm border rounded overflow-hidden"
+        *ngFor="let blog of blogs?.latest_blogs">
         <div class="w-full">
             <div class="h-44 imgDiv">
-                <img class="w-full h-full" src="/assets/images/home-img-1.png" alt="">
+                <img class="w-full h-full" [src]="'/assets/images/'+blog?.image">
             </div>
-            <div class="p-4 bg-white">
-                <h1 class="m2-4 text-black text-lg blog-title cursor-pointer">Let Users Know What’s Going on
-                    with the Blazor Notification Component</h1>
-                <div class="flex justify-between items-center mt-6">
-                    <p class="text-sm text-slate-500 flex flex-col">
-                        <span>by<span class="text-sky-400"> @CodePlus admin</span></span>
-                        <span class="flex items-center mt-2"><i class="far fa-clock text-sm mr-1"></i> <span>December
-                                11, 2023</span></span>
+            <div class="px-4 py-6 bg-white flex flex-col gap-4">
+                <p class="text-xs">
+                    <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
+                        *ngFor="let tag of blog?.tags">#{{tag}}</span>
+                </p>
+                <h1 class="text-black text-xl blog-title cursor-pointer"><a
+                        [routerLink]="'/blogs/details/'+blog?.id">{{blog?.title}}</a></h1>
+                <div class="flex justify-between items-center">
+                    <p class="text-sm text-slate-500 flex flex-col gap-1">
+                        <span>by<span class="text-sky-400"> &#64;{{blog?.author?.username}}</span></span>
+                        <span class="flex items-center"><i class="far fa-clock text-sm mr-1"></i>
+                            <span>{{blog?.createdAt | date}}</span></span>
                     </p>
-                    <p class="text-sm text-slate-500 flex items-center"><i class="fa fa-share mr-1"></i>Share</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-span-3 md:col-span-1 border rounded overflow-hidden">
-        <div class="w-full">
-            <div class="h-44 imgDiv">
-                <img class="w-full h-full" src="/assets/images/home-img-2.png" alt="">
-            </div>
-            <div class="p-4 bg-white">
-                <h1 class="m2-4 text-black text-lg blog-title cursor-pointer">Let Users Know What’s Going on
-                    with the Blazor Notification Component</h1>
-                <div class="flex justify-between items-center mt-6">
-                    <p class="text-sm text-slate-500 flex flex-col">
-                        <span>by<span class="text-sky-400"> @CodePlus admin</span></span>
-                        <span class="flex items-center mt-2"><i class="far fa-clock text-sm mr-1"></i> <span>December
-                                11, 2023</span></span>
-                    </p>
-                    <p class="text-sm text-slate-500 flex items-center"><i class="fa fa-share mr-1"></i>Share</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-span-3 md:col-span-1 border rounded overflow-hidden">
-        <div class="w-full">
-            <div class="h-44 imgDiv">
-                <img class="w-full h-full" src="/assets/images/home-img-1.png" alt="">
-            </div>
-            <div class="p-4 bg-white">
-                <h1 class="m2-4 text-black text-lg blog-title cursor-pointer">Let Users Know What’s Going on
-                    with the Blazor Notification Component</h1>
-                <div class="flex justify-between items-center mt-6">
-                    <p class="text-sm text-slate-500 flex flex-col">
-                        <span>by<span class="text-sky-400"> @CodePlus admin</span></span>
-                        <span class="flex items-center mt-2"><i class="far fa-clock text-sm mr-1"></i> <span>December
-                                11, 2023</span></span>
-                    </p>
-                    <p class="text-sm text-slate-500 flex items-center"><i class="fa fa-share mr-1"></i>Share</p>
+                    <p class="text-sm text-slate-500 flex items-center cursor-pointer hover:text-slate-600"
+                        (click)="_sharedService.shareBlog(blog)"><i class="fa fa-share mr-1"></i>Share</p>
                 </div>
             </div>
         </div>
@@ -122,63 +70,31 @@
 <!-- section 3 -->
 <div class="my-4 flex justify-between items-center" #frontend>
     <h1 class="text-black text-2xl font-medium">Frontend Blogs</h1>
-    <p><a class="text-sky-500 hover:underline cursor-pointer">View More</a></p>
+    <p><a class="text-sky-500 hover:underline cursor-pointer" routerLink="/blogs/frontend">View More</a></p>
 </div>
 
 <div class="grid grid-cols-3 gap-4 px-2">
-    <div class="col-span-3 md:col-span-1 border rounded overflow-hidden">
+    <div class="col-span-3 md:col-span-1 shadow-sm border rounded overflow-hidden"
+        *ngFor="let blog of blogs?.frontend_blogs">
         <div class="w-full">
             <div class="h-44 imgDiv">
-                <img class="w-full h-full" src="/assets/images/home-img-1.png" alt="">
+                <img class="w-full h-full" [src]="'/assets/images/'+blog?.image">
             </div>
-            <div class="p-4 bg-white">
-                <h1 class="m2-4 text-black text-lg blog-title cursor-pointer">Let Users Know What’s Going on
-                    with the Blazor Notification Component</h1>
-                <div class="flex justify-between items-center mt-6">
-                    <p class="text-sm text-slate-500 flex flex-col">
-                        <span>by<span class="text-sky-400"> @CodePlus admin</span></span>
-                        <span class="flex items-center mt-2"><i class="far fa-clock text-sm mr-1"></i> <span>December
-                                11, 2023</span></span>
+            <div class="px-4 py-6 bg-white flex flex-col gap-4">
+                <p class="text-xs">
+                    <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
+                        *ngFor="let tag of blog?.tags">#{{tag}}</span>
+                </p>
+                <h1 class="text-black text-xl blog-title cursor-pointer"><a
+                        [routerLink]="'/blogs/details/'+blog?.id">{{blog?.title}}</a></h1>
+                <div class="flex justify-between items-center">
+                    <p class="text-sm text-slate-500 flex flex-col gap-1">
+                        <span>by<span class="text-sky-400"> &#64;{{blog?.author?.username}}</span></span>
+                        <span class="flex items-center"><i class="far fa-clock text-sm mr-1"></i>
+                            <span>{{blog?.createdAt | date}}</span></span>
                     </p>
-                    <p class="text-sm text-slate-500 flex items-center"><i class="fa fa-share mr-1"></i>Share</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-span-3 md:col-span-1 border rounded overflow-hidden">
-        <div class="w-full">
-            <div class="h-44 imgDiv">
-                <img class="w-full h-full" src="/assets/images/home-img-2.png" alt="">
-            </div>
-            <div class="p-4 bg-white">
-                <h1 class="m2-4 text-black text-lg blog-title cursor-pointer">Let Users Know What’s Going on
-                    with the Blazor Notification Component</h1>
-                <div class="flex justify-between items-center mt-6">
-                    <p class="text-sm text-slate-500 flex flex-col">
-                        <span>by<span class="text-sky-400"> @CodePlus admin</span></span>
-                        <span class="flex items-center mt-2"><i class="far fa-clock text-sm mr-1"></i> <span>December
-                                11, 2023</span></span>
-                    </p>
-                    <p class="text-sm text-slate-500 flex items-center"><i class="fa fa-share mr-1"></i>Share</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-span-3 md:col-span-1 border rounded overflow-hidden">
-        <div class="w-full">
-            <div class="h-44 imgDiv">
-                <img class="w-full h-full" src="/assets/images/home-img-1.png" alt="">
-            </div>
-            <div class="p-4 bg-white">
-                <h1 class="m2-4 text-black text-lg blog-title cursor-pointer">Let Users Know What’s Going on
-                    with the Blazor Notification Component</h1>
-                <div class="flex justify-between items-center mt-6">
-                    <p class="text-sm text-slate-500 flex flex-col">
-                        <span>by<span class="text-sky-400"> @CodePlus admin</span></span>
-                        <span class="flex items-center mt-2"><i class="far fa-clock text-sm mr-1"></i> <span>December
-                                11, 2023</span></span>
-                    </p>
-                    <p class="text-sm text-slate-500 flex items-center"><i class="fa fa-share mr-1"></i>Share</p>
+                    <p class="text-sm text-slate-500 flex items-center cursor-pointer hover:text-slate-600"
+                        (click)="_sharedService.shareBlog(blog)"><i class="fa fa-share mr-1"></i>Share</p>
                 </div>
             </div>
         </div>
@@ -188,63 +104,31 @@
 <!-- section 4 -->
 <div class="my-4 flex justify-between items-center" #backend>
     <h1 class="text-black text-2xl font-medium">Backend Blogs</h1>
-    <p><a class="text-sky-500 hover:underline cursor-pointer">View More</a></p>
+    <p><a class="text-sky-500 hover:underline cursor-pointer" routerLink="/blogs/backend">View More</a></p>
 </div>
 
 <div class="grid grid-cols-3 gap-4 px-2">
-    <div class="col-span-3 md:col-span-1 border rounded overflow-hidden">
+    <div class="col-span-3 md:col-span-1 shadow-sm border rounded overflow-hidden"
+        *ngFor="let blog of blogs?.backend_blogs">
         <div class="w-full">
             <div class="h-44 imgDiv">
-                <img class="w-full h-full" src="/assets/images/home-img-1.png" alt="">
+                <img class="w-full h-full" [src]="'/assets/images/'+blog?.image">
             </div>
-            <div class="p-4 bg-white">
-                <h1 class="m2-4 text-black text-lg blog-title cursor-pointer">Let Users Know What’s Going on
-                    with the Blazor Notification Component</h1>
-                <div class="flex justify-between items-center mt-6">
-                    <p class="text-sm text-slate-500 flex flex-col">
-                        <span>by<span class="text-sky-400"> @CodePlus admin</span></span>
-                        <span class="flex items-center mt-2"><i class="far fa-clock text-sm mr-1"></i> <span>December
-                                11, 2023</span></span>
+            <div class="px-4 py-6 bg-white flex flex-col gap-4">
+                <p class="text-xs">
+                    <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
+                        *ngFor="let tag of blog?.tags">#{{tag}}</span>
+                </p>
+                <h1 class="text-black text-xl blog-title cursor-pointer"><a
+                        [routerLink]="'/blogs/details/'+blog?.id">{{blog?.title}}</a></h1>
+                <div class="flex justify-between items-center">
+                    <p class="text-sm text-slate-500 flex flex-col gap-1">
+                        <span>by<span class="text-sky-400"> &#64;{{blog?.author?.username}}</span></span>
+                        <span class="flex items-center"><i class="far fa-clock text-sm mr-1"></i>
+                            <span>{{blog?.createdAt | date}}</span></span>
                     </p>
-                    <p class="text-sm text-slate-500 flex items-center"><i class="fa fa-share mr-1"></i>Share</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-span-3 md:col-span-1 border rounded overflow-hidden">
-        <div class="w-full">
-            <div class="h-44 imgDiv">
-                <img class="w-full h-full" src="/assets/images/home-img-2.png" alt="">
-            </div>
-            <div class="p-4 bg-white">
-                <h1 class="m2-4 text-black text-lg blog-title cursor-pointer">Let Users Know What’s Going on
-                    with the Blazor Notification Component</h1>
-                <div class="flex justify-between items-center mt-6">
-                    <p class="text-sm text-slate-500 flex flex-col">
-                        <span>by<span class="text-sky-400"> @CodePlus admin</span></span>
-                        <span class="flex items-center mt-2"><i class="far fa-clock text-sm mr-1"></i> <span>December
-                                11, 2023</span></span>
-                    </p>
-                    <p class="text-sm text-slate-500 flex items-center"><i class="fa fa-share mr-1"></i>Share</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-span-3 md:col-span-1 border rounded overflow-hidden">
-        <div class="w-full">
-            <div class="h-44 imgDiv">
-                <img class="w-full h-full" src="/assets/images/home-img-1.png" alt="">
-            </div>
-            <div class="p-4 bg-white">
-                <h1 class="m2-4 text-black text-lg blog-title cursor-pointer">Let Users Know What’s Going on
-                    with the Blazor Notification Component</h1>
-                <div class="flex justify-between items-center mt-6">
-                    <p class="text-sm text-slate-500 flex flex-col">
-                        <span>by<span class="text-sky-400"> @CodePlus admin</span></span>
-                        <span class="flex items-center mt-2"><i class="far fa-clock text-sm mr-1"></i> <span>December
-                                11, 2023</span></span>
-                    </p>
-                    <p class="text-sm text-slate-500 flex items-center"><i class="fa fa-share mr-1"></i>Share</p>
+                    <p class="text-sm text-slate-500 flex items-center cursor-pointer hover:text-slate-600"
+                        (click)="_sharedService.shareBlog(blog)"><i class="fa fa-share mr-1"></i>Share</p>
                 </div>
             </div>
         </div>
@@ -254,63 +138,31 @@
 <!-- section 4 -->
 <div class="my-4 flex justify-between items-center" #fullstack>
     <h1 class="text-black text-2xl font-medium">Fullstack Blogs</h1>
-    <p><a class="text-sky-500 hover:underline cursor-pointer">View More</a></p>
+    <p><a class="text-sky-500 hover:underline cursor-pointer" routerLink="/blogs/fullstack">View More</a></p>
 </div>
 
 <div class="grid grid-cols-3 gap-4 px-2">
-    <div class="col-span-3 md:col-span-1 border rounded overflow-hidden">
+    <div class="col-span-3 md:col-span-1 shadow-sm border rounded overflow-hidden"
+        *ngFor="let blog of blogs?.fullstack_blogs">
         <div class="w-full">
             <div class="h-44 imgDiv">
-                <img class="w-full h-full" src="/assets/images/home-img-1.png" alt="">
+                <img class="w-full h-full" [src]="'/assets/images/'+blog?.image">
             </div>
-            <div class="p-4 bg-white">
-                <h1 class="m2-4 text-black text-lg blog-title cursor-pointer">Let Users Know What’s Going on
-                    with the Blazor Notification Component</h1>
-                <div class="flex justify-between items-center mt-6">
-                    <p class="text-sm text-slate-500 flex flex-col">
-                        <span>by<span class="text-sky-400"> @CodePlus admin</span></span>
-                        <span class="flex items-center mt-2"><i class="far fa-clock text-sm mr-1"></i> <span>December
-                                11, 2023</span></span>
+            <div class="px-4 py-6 bg-white flex flex-col gap-4">
+                <p class="text-xs">
+                    <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
+                        *ngFor="let tag of blog?.tags">#{{tag}}</span>
+                </p>
+                <h1 class="text-black text-xl blog-title cursor-pointer"><a
+                        [routerLink]="'/blogs/details/'+blog?.id">{{blog?.title}}</a></h1>
+                <div class="flex justify-between items-center">
+                    <p class="text-sm text-slate-500 flex flex-col gap-1">
+                        <span>by<span class="text-sky-400"> &#64;{{blog?.author?.username}}</span></span>
+                        <span class="flex items-center"><i class="far fa-clock text-sm mr-1"></i>
+                            <span>{{blog?.createdAt | date}}</span></span>
                     </p>
-                    <p class="text-sm text-slate-500 flex items-center"><i class="fa fa-share mr-1"></i>Share</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-span-3 md:col-span-1 border rounded overflow-hidden">
-        <div class="w-full">
-            <div class="h-44 imgDiv">
-                <img class="w-full h-full" src="/assets/images/home-img-2.png" alt="">
-            </div>
-            <div class="p-4 bg-white">
-                <h1 class="m2-4 text-black text-lg blog-title cursor-pointer">Let Users Know What’s Going on
-                    with the Blazor Notification Component</h1>
-                <div class="flex justify-between items-center mt-6">
-                    <p class="text-sm text-slate-500 flex flex-col">
-                        <span>by<span class="text-sky-400"> @CodePlus admin</span></span>
-                        <span class="flex items-center mt-2"><i class="far fa-clock text-sm mr-1"></i> <span>December
-                                11, 2023</span></span>
-                    </p>
-                    <p class="text-sm text-slate-500 flex items-center"><i class="fa fa-share mr-1"></i>Share</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-span-3 md:col-span-1 border rounded overflow-hidden">
-        <div class="w-full">
-            <div class="h-44 imgDiv">
-                <img class="w-full h-full" src="/assets/images/home-img-1.png" alt="">
-            </div>
-            <div class="p-4 bg-white">
-                <h1 class="m2-4 text-black text-lg blog-title cursor-pointer">Let Users Know What’s Going on
-                    with the Blazor Notification Component</h1>
-                <div class="flex justify-between items-center mt-6">
-                    <p class="text-sm text-slate-500 flex flex-col">
-                        <span>by<span class="text-sky-400"> @CodePlus admin</span></span>
-                        <span class="flex items-center mt-2"><i class="far fa-clock text-sm mr-1"></i> <span>December
-                                11, 2023</span></span>
-                    </p>
-                    <p class="text-sm text-slate-500 flex items-center"><i class="fa fa-share mr-1"></i>Share</p>
+                    <p class="text-sm text-slate-500 flex items-center cursor-pointer hover:text-slate-600"
+                        (click)="_sharedService.shareBlog(blog)"><i class="fa fa-share mr-1"></i>Share</p>
                 </div>
             </div>
         </div>

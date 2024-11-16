@@ -1,6 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { BlogService } from 'src/app/modules/blogs/services/blog.service';
 import { ScrollService } from 'src/app/shared/services/scroll.service';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +23,10 @@ export class HomeComponent {
   private subscriptionBackend: Subscription;
   private subscriptionFullstack: Subscription;
 
-  constructor(private scrollService: ScrollService) {
+  public blogs: any;
+  public isLoading: boolean = false;
+
+  constructor(private scrollService: ScrollService, private _blogService: BlogService, public _sharedService: SharedService) {
   }
 
   ngOnInit() {
@@ -44,6 +49,18 @@ export class HomeComponent {
     this.subscriptionFullstack = this.scrollService.scrollFullstackCalled$.subscribe(() => {
       this.onFullstack();
     });
+
+    this.getBlogs();
+  }
+
+  private getBlogs() {
+    this.isLoading = true;
+    this._blogService.getBlogs().subscribe(res => {
+      this.blogs = res;
+      this.isLoading = false;
+    }, (err) => {
+      this.isLoading = false;
+    })
   }
 
   private scrollToElement(element: ElementRef<any>) {
