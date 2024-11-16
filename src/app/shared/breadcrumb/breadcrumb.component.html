@@ -1,4 +1,4 @@
-<div class="">
+<div *ngIf="url?.length > 0">
     <ul class="flex breadcrumb">
         <li routerLink="">Home</li>
         <li *ngFor="let u of url">{{u}}</li>
