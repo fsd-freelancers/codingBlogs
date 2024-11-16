@@ -18,12 +18,14 @@
             <div class="h-48 imgDiv">
                 <img class="w-full h-full" [src]="'/assets/images/'+blog?.image">
             </div>
-            <div class="px-4 py-6 bg-white flex flex-col gap-3">
-                <p class="text-xs">
-                    <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
-                        *ngFor="let tag of blog?.tags">#{{tag}}</span>
-                </p>
-                <h1 class="my-4 text-black text-xl blog-title cursor-pointer"><a>{{blog?.title}}</a></h1>
+            <div class="px-4 py-6 bg-white flex flex-col justify-between" style="height: 220px;">
+                <div class="flex flex-col gap-6">
+                    <p class="text-xs">
+                        <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
+                            *ngFor="let tag of blog?.tags">#{{tag}}</span>
+                    </p>
+                    <h1 class="text-black text-xl blog-title cursor-pointer"><a>{{blog?.title}}</a></h1>
+                </div>
                 <div class="flex justify-between items-center">
                     <p class="text-sm text-slate-500 flex flex-col gap-1">
                         <span>by<span class="text-sky-400"> &#64;{{blog?.author?.username}}</span></span>
@@ -57,12 +59,14 @@
             <div class="h-44 imgDiv">
                 <img class="w-full h-full" [src]="'/assets/images/'+blog?.image">
             </div>
-            <div class="px-4 py-6 bg-white flex flex-col gap-4">
-                <p class="text-xs">
-                    <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
-                        *ngFor="let tag of blog?.tags">#{{tag}}</span>
-                </p>
-                <h1 class="text-black text-xl blog-title cursor-pointer"><a>{{blog?.title}}</a></h1>
+            <div class="h-52 px-4 py-6 bg-white flex flex-col justify-between">
+                <div class="flex flex-col gap-5">
+                    <p class="text-xs">
+                        <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
+                            *ngFor="let tag of blog?.tags">#{{tag}}</span>
+                    </p>
+                    <h1 class="text-black text-xl blog-title cursor-pointer"><a>{{blog?.title}}</a></h1>
+                </div>
                 <div class="flex justify-between items-center">
                     <p class="text-sm text-slate-500 flex flex-col gap-1">
                         <span>by<span class="text-sky-400"> &#64;{{blog?.author?.username}}</span></span>
@@ -96,12 +100,14 @@
             <div class="h-44 imgDiv">
                 <img class="w-full h-full" [src]="'/assets/images/'+blog?.image">
             </div>
-            <div class="px-4 py-6 bg-white flex flex-col gap-4">
-                <p class="text-xs">
-                    <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
-                        *ngFor="let tag of blog?.tags">#{{tag}}</span>
-                </p>
-                <h1 class="text-black text-xl blog-title cursor-pointer"><a>{{blog?.title}}</a></h1>
+            <div class="h-52 px-4 py-6 bg-white flex flex-col justify-between">
+                <div class="flex flex-col gap-5">
+                    <p class="text-xs">
+                        <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
+                            *ngFor="let tag of blog?.tags">#{{tag}}</span>
+                    </p>
+                    <h1 class="text-black text-xl blog-title cursor-pointer"><a>{{blog?.title}}</a></h1>
+                </div>
                 <div class="flex justify-between items-center">
                     <p class="text-sm text-slate-500 flex flex-col gap-1">
                         <span>by<span class="text-sky-400"> &#64;{{blog?.author?.username}}</span></span>
@@ -135,12 +141,14 @@
             <div class="h-44 imgDiv">
                 <img class="w-full h-full" [src]="'/assets/images/'+blog?.image">
             </div>
-            <div class="px-4 py-6 bg-white flex flex-col gap-4">
-                <p class="text-xs">
-                    <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
-                        *ngFor="let tag of blog?.tags">#{{tag}}</span>
-                </p>
-                <h1 class="text-black text-xl blog-title cursor-pointer"><a>{{blog?.title}}</a></h1>
+            <div class="h-52 px-4 py-6 bg-white flex flex-col justify-between">
+                <div class="flex flex-col gap-5">
+                    <p class="text-xs">
+                        <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
+                            *ngFor="let tag of blog?.tags">#{{tag}}</span>
+                    </p>
+                    <h1 class="text-black text-xl blog-title cursor-pointer"><a>{{blog?.title}}</a></h1>
+                </div>
                 <div class="flex justify-between items-center">
                     <p class="text-sm text-slate-500 flex flex-col gap-1">
                         <span>by<span class="text-sky-400"> &#64;{{blog?.author?.username}}</span></span>
@@ -174,12 +182,14 @@
             <div class="h-44 imgDiv">
                 <img class="w-full h-full" [src]="'/assets/images/'+blog?.image">
             </div>
-            <div class="px-4 py-6 bg-white flex flex-col gap-4">
-                <p class="text-xs">
-                    <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
-                        *ngFor="let tag of blog?.tags">#{{tag}}</span>
-                </p>
-                <h1 class="text-black text-xl blog-title cursor-pointer"><a>{{blog?.title}}</a></h1>
+            <div class="h-52 px-4 py-6 bg-white flex flex-col justify-between">
+                <div class="flex flex-col gap-5">
+                    <p class="text-xs">
+                        <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
+                            *ngFor="let tag of blog?.tags">#{{tag}}</span>
+                    </p>
+                    <h1 class="text-black text-xl blog-title cursor-pointer"><a>{{blog?.title}}</a></h1>
+                </div>
                 <div class="flex justify-between items-center">
                     <p class="text-sm text-slate-500 flex flex-col gap-1">
                         <span>by<span class="text-sky-400"> &#64;{{blog?.author?.username}}</span></span>

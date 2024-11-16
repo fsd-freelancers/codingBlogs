@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { BlogService } from '../services/blog.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-write-blogs',
@@ -33,8 +34,12 @@ export class WriteBlogsComponent {
 
     this.isLoading = true;
     this._blogService.createBlog(blogData).subscribe(res => {
-      console.log(res)
+      // console.log(res)
       this.isLoading = false;
+      Swal.fire({
+        icon: 'success',
+        title: 'Blog updated successfully!'
+      })
     }, (err) => {
       this.isLoading = false;
     })
