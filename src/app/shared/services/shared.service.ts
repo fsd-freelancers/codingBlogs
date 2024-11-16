@@ -13,7 +13,7 @@ export class SharedService {
       (navigator as any).share({
         title: blog.title,
         text: `Check out this blog: ${blog.title}`,
-        url: `http:localhost:4200/blogs/details/${blog.id}`,
+        url: `https://coding-blogs-seven.vercel.app/blogs/details/${blog.id}`,
       })
         .then(() => console.log('Successfully shared!'))
         .catch((error) => console.log('Successfully shared!'))

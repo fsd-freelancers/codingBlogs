@@ -5,16 +5,16 @@
 </div>
 
 <!-- section 1 -->
-<div class="grid grid-cols-2 gap-4 px-2">
+<div class="grid grid-cols-2 gap-4 px-2" *ngIf="isLoading">
     <div class="col-span-2 md:col-span-1 shadow-sm border rounded overflow-hidden" *ngFor="let load of [0,0]">
-        <app-skeleton-loader *ngIf="isLoading"></app-skeleton-loader>
+        <app-skeleton-loader></app-skeleton-loader>
     </div>
 </div>
 
 <div class="grid grid-cols-2 gap-4 px-2" *ngIf="!isLoading">
     <div class="col-span-2 md:col-span-1 shadow-sm border rounded overflow-hidden"
         *ngFor="let blog of blogs?.featured_blogs">
-        <div class="w-full">
+        <div class="w-full" [routerLink]="'/blogs/details/'+blog?.id">
             <div class="h-48 imgDiv">
                 <img class="w-full h-full" [src]="'/assets/images/'+blog?.image">
             </div>
@@ -23,8 +23,7 @@
                     <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
                         *ngFor="let tag of blog?.tags">#{{tag}}</span>
                 </p>
-                <h1 class="my-4 text-black text-xl blog-title cursor-pointer"><a
-                        [routerLink]="'/blogs/details/'+blog?.id">{{blog?.title}}</a></h1>
+                <h1 class="my-4 text-black text-xl blog-title cursor-pointer"><a>{{blog?.title}}</a></h1>
                 <div class="flex justify-between items-center">
                     <p class="text-sm text-slate-500 flex flex-col gap-1">
                         <span>by<span class="text-sky-400"> &#64;{{blog?.author?.username}}</span></span>
@@ -45,16 +44,16 @@
     <p><a class="text-sky-500 hover:underline cursor-pointer" routerLink="/blogs/latest">View More</a></p>
 </div>
 
-<div class="grid grid-cols-3 gap-4 px-2">
+<div class="grid grid-cols-3 gap-4 px-2" *ngIf="isLoading">
     <div class="col-span-3 md:col-span-1 shadow-sm border rounded overflow-hidden" *ngFor="let load of [0,0,0]">
-        <app-skeleton-loader *ngIf="isLoading"></app-skeleton-loader>
+        <app-skeleton-loader></app-skeleton-loader>
     </div>
 </div>
 
 <div class="grid grid-cols-3 gap-4 px-2" *ngIf="!isLoading">
     <div class="col-span-3 md:col-span-1 shadow-sm border rounded overflow-hidden"
         *ngFor="let blog of blogs?.latest_blogs">
-        <div class="w-full">
+        <div class="w-full" [routerLink]="'/blogs/details/'+blog?.id">
             <div class="h-44 imgDiv">
                 <img class="w-full h-full" [src]="'/assets/images/'+blog?.image">
             </div>
@@ -63,8 +62,7 @@
                     <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
                         *ngFor="let tag of blog?.tags">#{{tag}}</span>
                 </p>
-                <h1 class="text-black text-xl blog-title cursor-pointer"><a
-                        [routerLink]="'/blogs/details/'+blog?.id">{{blog?.title}}</a></h1>
+                <h1 class="text-black text-xl blog-title cursor-pointer"><a>{{blog?.title}}</a></h1>
                 <div class="flex justify-between items-center">
                     <p class="text-sm text-slate-500 flex flex-col gap-1">
                         <span>by<span class="text-sky-400"> &#64;{{blog?.author?.username}}</span></span>
@@ -85,16 +83,16 @@
     <p><a class="text-sky-500 hover:underline cursor-pointer" routerLink="/blogs/frontend">View More</a></p>
 </div>
 
-<div class="grid grid-cols-3 gap-4 px-2">
+<div class="grid grid-cols-3 gap-4 px-2" *ngIf="isLoading">
     <div class="col-span-3 md:col-span-1 shadow-sm border rounded overflow-hidden" *ngFor="let load of [0,0,0]">
-        <app-skeleton-loader *ngIf="isLoading"></app-skeleton-loader>
+        <app-skeleton-loader></app-skeleton-loader>
     </div>
 </div>
 
 <div class="grid grid-cols-3 gap-4 px-2" *ngIf="!isLoading">
     <div class="col-span-3 md:col-span-1 shadow-sm border rounded overflow-hidden"
         *ngFor="let blog of blogs?.frontend_blogs">
-        <div class="w-full">
+        <div class="w-full" [routerLink]="'/blogs/details/'+blog?.id">
             <div class="h-44 imgDiv">
                 <img class="w-full h-full" [src]="'/assets/images/'+blog?.image">
             </div>
@@ -103,8 +101,7 @@
                     <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
                         *ngFor="let tag of blog?.tags">#{{tag}}</span>
                 </p>
-                <h1 class="text-black text-xl blog-title cursor-pointer"><a
-                        [routerLink]="'/blogs/details/'+blog?.id">{{blog?.title}}</a></h1>
+                <h1 class="text-black text-xl blog-title cursor-pointer"><a>{{blog?.title}}</a></h1>
                 <div class="flex justify-between items-center">
                     <p class="text-sm text-slate-500 flex flex-col gap-1">
                         <span>by<span class="text-sky-400"> &#64;{{blog?.author?.username}}</span></span>
@@ -125,16 +122,16 @@
     <p><a class="text-sky-500 hover:underline cursor-pointer" routerLink="/blogs/backend">View More</a></p>
 </div>
 
-<div class="grid grid-cols-3 gap-4 px-2">
+<div class="grid grid-cols-3 gap-4 px-2" *ngIf="isLoading">
     <div class="col-span-3 md:col-span-1 shadow-sm border rounded overflow-hidden" *ngFor="let load of [0,0,0]">
-        <app-skeleton-loader *ngIf="isLoading"></app-skeleton-loader>
+        <app-skeleton-loader></app-skeleton-loader>
     </div>
 </div>
 
 <div class="grid grid-cols-3 gap-4 px-2" *ngIf="!isLoading">
     <div class="col-span-3 md:col-span-1 shadow-sm border rounded overflow-hidden"
         *ngFor="let blog of blogs?.backend_blogs">
-        <div class="w-full">
+        <div class="w-full" [routerLink]="'/blogs/details/'+blog?.id">
             <div class="h-44 imgDiv">
                 <img class="w-full h-full" [src]="'/assets/images/'+blog?.image">
             </div>
@@ -143,8 +140,7 @@
                     <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
                         *ngFor="let tag of blog?.tags">#{{tag}}</span>
                 </p>
-                <h1 class="text-black text-xl blog-title cursor-pointer"><a
-                        [routerLink]="'/blogs/details/'+blog?.id">{{blog?.title}}</a></h1>
+                <h1 class="text-black text-xl blog-title cursor-pointer"><a>{{blog?.title}}</a></h1>
                 <div class="flex justify-between items-center">
                     <p class="text-sm text-slate-500 flex flex-col gap-1">
                         <span>by<span class="text-sky-400"> &#64;{{blog?.author?.username}}</span></span>
@@ -165,16 +161,16 @@
     <p><a class="text-sky-500 hover:underline cursor-pointer" routerLink="/blogs/fullstack">View More</a></p>
 </div>
 
-<div class="grid grid-cols-3 gap-4 px-2">
+<div class="grid grid-cols-3 gap-4 px-2" *ngIf="isLoading">
     <div class="col-span-3 md:col-span-1 shadow-sm border rounded overflow-hidden" *ngFor="let load of [0,0,0]">
-        <app-skeleton-loader *ngIf="isLoading"></app-skeleton-loader>
+        <app-skeleton-loader></app-skeleton-loader>
     </div>
 </div>
 
 <div class="grid grid-cols-3 gap-4 px-2" *ngIf="!isLoading">
     <div class="col-span-3 md:col-span-1 shadow-sm border rounded overflow-hidden"
         *ngFor="let blog of blogs?.fullstack_blogs">
-        <div class="w-full">
+        <div class="w-full" [routerLink]="'/blogs/details/'+blog?.id">
             <div class="h-44 imgDiv">
                 <img class="w-full h-full" [src]="'/assets/images/'+blog?.image">
             </div>
@@ -183,8 +179,7 @@
                     <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
                         *ngFor="let tag of blog?.tags">#{{tag}}</span>
                 </p>
-                <h1 class="text-black text-xl blog-title cursor-pointer"><a
-                        [routerLink]="'/blogs/details/'+blog?.id">{{blog?.title}}</a></h1>
+                <h1 class="text-black text-xl blog-title cursor-pointer"><a>{{blog?.title}}</a></h1>
                 <div class="flex justify-between items-center">
                     <p class="text-sm text-slate-500 flex flex-col gap-1">
                         <span>by<span class="text-sky-400"> &#64;{{blog?.author?.username}}</span></span>
