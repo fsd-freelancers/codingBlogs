@@ -8,7 +8,7 @@
         <h1 class="text-black font-medium capitalize">{{this.actRoute.snapshot.params['tag']}} Blogs</h1>
     </div>
     <div class="grid grid-cols-3 gap-6 px-2">
-        <div class="col-span-3 md:col-span-1 border rounded overflow-hidden" *ngFor="let blog of blogDetail">
+        <div class="col-span-3 md:col-span-1 shadow-sm border rounded overflow-hidden" *ngFor="let blog of blogDetail">
             <div class="w-full">
                 <div class="h-44 imgDiv">
                     <img class="w-full h-full" [src]="'/assets/images/'+blog?.image">
