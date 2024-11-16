@@ -13,12 +13,18 @@
                 <div class="h-44 imgDiv">
                     <img class="w-full h-full" [src]="'/assets/images/'+blog?.image">
                 </div>
-                <div class="h-40 p-4 bg-white flex flex-col justify-between">
-                    <h1 class="text-black text-lg blog-title cursor-pointer"><a>{{blog?.title}}</a></h1>
+                <div class="h-52 px-4 py-6 bg-white flex flex-col justify-between">
+                    <div class="flex flex-col gap-5">
+                        <p class="text-xs">
+                            <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
+                                *ngFor="let tag of blog?.tags">#{{tag}}</span>
+                        </p>
+                        <h1 class="text-black text-xl blog-title cursor-pointer"><a>{{blog?.title}}</a></h1>
+                    </div>
                     <div class="flex justify-between items-center">
-                        <p class="text-sm text-slate-500 flex flex-col">
-                            <span>by<span class="text-sky-400"> &#64;CodePlus admin</span></span>
-                            <span class="flex items-center mt-2"><i class="far fa-clock text-sm mr-1"></i>
+                        <p class="text-sm text-slate-500 flex flex-col gap-1">
+                            <span>by<span class="text-sky-400"> &#64;{{blog?.author?.username}}</span></span>
+                            <span class="flex items-center"><i class="far fa-clock text-sm mr-1"></i>
                                 <span>{{blog?.createdAt | date}}</span></span>
                         </p>
                         <p class="text-sm text-slate-500 flex items-center cursor-pointer hover:text-slate-600"
