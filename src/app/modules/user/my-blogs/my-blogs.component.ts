@@ -19,7 +19,7 @@ export class MyBlogsComponent {
 
   private getMyBlogs() {
     this.isLoading = true;
-    this._userService.getMyBlogs('66fda8708edd5a1be29d03f9').subscribe(res => {
+    this._userService.getMyBlogs(1731856468254).subscribe(res => {
       this.blogDetail = res;
       this.isLoading = false;
     }, (err) => {
