@@ -18,8 +18,10 @@ export class MyProfileComponent {
   }
 
   private getUserProfile() {
+    this.isLoading = true;
     this._userService.getUserProfile('66fda8708edd5a1be29d03f9').subscribe(res => {
       // console.log(res);
+      this.isLoading = false;
       this.userForm.patchValue({
         username: res['username'],
         email: res['email']

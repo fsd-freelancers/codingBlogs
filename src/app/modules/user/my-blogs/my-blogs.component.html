@@ -4,10 +4,10 @@
     <div class="mt-4 mb-3">
         <app-breadcrumb></app-breadcrumb>
     </div>
-    <div class="my-4 text-2xl">
+    <!-- <div class="my-4 text-2xl">
         <h1 class="text-black font-medium capitalize">My Blogs</h1>
-    </div>
-    <div class="grid grid-cols-3 gap-6 px-2">
+    </div> -->
+    <div class="grid grid-cols-3 gap-6 px-2 mt-2">
         <div class="col-span-3 md:col-span-1 shadow-sm border rounded overflow-hidden" *ngFor="let blog of blogDetail">
             <div class="w-full" [routerLink]="'/blogs/details/'+blog?.id">
                 <div class="h-44 imgDiv">
