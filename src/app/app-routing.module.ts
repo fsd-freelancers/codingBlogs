@@ -7,6 +7,8 @@ import { HomeComponent } from './layout/home/home.component';
 import { FaqsComponent } from './features/faqs/faqs.component';
 import { ViewBlogsComponent } from './modules/blogs/view-blogs/view-blogs.component';
 import { SearchBlogsComponent } from './modules/blogs/search-blogs/search-blogs.component';
+import { MyProfileComponent } from './modules/user/my-profile/my-profile.component';
+import { MyBlogsComponent } from './modules/user/my-blogs/my-blogs.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'blogs', pathMatch: 'full' },
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: 'blogs/search/:searchedText', component: SearchBlogsComponent },
   { path: 'write', component: WriteBlogsComponent },
   { path: 'faqs', component: FaqsComponent },
+  { path: 'my-profile', component: MyProfileComponent },
+  { path: 'my-blogs', component: MyBlogsComponent },
 ];
 
 @NgModule({
