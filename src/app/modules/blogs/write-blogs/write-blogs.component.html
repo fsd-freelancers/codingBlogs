@@ -5,7 +5,7 @@
         <app-breadcrumb></app-breadcrumb>
     </div>
 
-    <form class="w-full p-10 rounded" [formGroup]="blogForm">
+    <form class="w-full p-10 rounded bg-white" [formGroup]="blogForm">
 
         <div class="mb-5 text-2xl">
             <h1 class="text-black font-medium text-center">Write Your Blog</h1>
@@ -16,7 +16,7 @@
                 <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Blog Title</label>
                 <div class="mt-2">
                     <input type="text"
-                        class="py-2 px-4 w-full outline-none rounded ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-sky-500"
+                        class="py-2 px-4 w-full outline-none rounded ring-1 ring-gray-200 placeholder:text-gray-400 focus:ring-sky-500"
                         placeholder="Title" formControlName="title">
                 </div>
             </div>
@@ -25,7 +25,7 @@
                 <label for="about" class="block text-sm font-medium leading-6 text-gray-900">Blog Description</label>
                 <div class="mt-2">
                     <textarea id="about" name="about" rows="5" formControlName="details"
-                        class="py-2 px-4 w-full outline-none rounded ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-sky-500"></textarea>
+                        class="py-2 px-4 w-full outline-none rounded ring-1 ring-gray-200 placeholder:text-gray-400 focus:ring-sky-500"></textarea>
                 </div>
                 <p class="text-sm leading-6 text-gray-600">Share your thoughts on the topic.</p>
             </div>
@@ -33,7 +33,7 @@
             <div class="mb-4">
                 <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Blog Topic</label>
                 <div class="mt-2">
-                    <ng-select [multiple]="true" placeholder="Select Tags" formControlName="tags">
+                    <ng-select class="rounded ring-gray-200" [multiple]="true" placeholder="Select Tags" formControlName="tags">
                         <ng-option *ngFor="let tag of tags" [value]="tag">{{tag}}</ng-option>
                     </ng-select>
                 </div>

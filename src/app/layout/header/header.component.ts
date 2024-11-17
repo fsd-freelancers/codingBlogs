@@ -31,18 +31,18 @@ export class HeaderComponent {
   }
 
   public onSearch() {
-    this.isSearch = true;
+    this.isSearch = !this.isSearch;
     this.isUserProfile = false;
     this.isTopics = false;
   }
 
   public onTopics() {
-    this.isTopics = true;
+    this.isTopics = !this.isTopics;
     this.isSearch = false;
   }
 
   public onUserProfile() {
-    this.isUserProfile = true;
+    this.isUserProfile = !this.isUserProfile;
     this.isSearch = false;
   }
 

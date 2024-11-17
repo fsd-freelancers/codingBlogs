@@ -8,6 +8,7 @@ import { BlogsModule } from './modules/blogs/blogs.module';
 import { FeaturesModule } from './features/features.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { UserModule } from './modules/user/user.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     BlogsModule,
     FeaturesModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
