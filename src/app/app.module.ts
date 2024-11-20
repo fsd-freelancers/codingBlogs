@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { BlogsModule } from './modules/blogs/blogs.module';
 import { FeaturesModule } from './features/features.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { UserModule } from './modules/user/user.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { AuthInterceptor } from './modules/auth/services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +24,10 @@ import { UserModule } from './modules/user/user.module';
     FeaturesModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    UserModule
+    UserModule,
+    AuthModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
