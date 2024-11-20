@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,7 @@ export class HeaderComponent {
   public isTopics: boolean = false;
   public isUserProfile: boolean = false;
 
-  constructor(private eRef: ElementRef, private router: Router) { }
+  constructor(private eRef: ElementRef, private router: Router, public _sharedService: SharedService) { }
 
   ngOnInit() {
     this.router.events.subscribe(event => {
@@ -59,6 +60,11 @@ export class HeaderComponent {
 
   public searchBlogs(text) {
     this.router.navigate(['/blogs/search/' + text.value]);
+  }
+
+  public onLogout() {
+    localStorage.clear();
+    this.router.navigate(['/blogs']);
   }
 
 }

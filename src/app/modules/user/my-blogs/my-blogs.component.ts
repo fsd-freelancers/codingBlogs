@@ -18,8 +18,9 @@ export class MyBlogsComponent {
   }
 
   private getMyBlogs() {
+    const userInfo = this._sharedService.userInfo;
     this.isLoading = true;
-    this._userService.getMyBlogs(1731856468254).subscribe(res => {
+    this._userService.getMyBlogs(userInfo.userId).subscribe(res => {
       this.blogDetail = res;
       this.isLoading = false;
     }, (err) => {

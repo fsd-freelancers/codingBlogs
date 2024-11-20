@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import Swal from 'sweetalert2';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
   selector: 'app-my-profile',
@@ -11,15 +12,16 @@ import Swal from 'sweetalert2';
 export class MyProfileComponent {
   public isLoading: boolean = false;
 
-  constructor(private _userService: UserService) { }
+  constructor(private _userService: UserService, private _sharedService: SharedService) { }
 
   ngOnInit() {
     this.getUserProfile();
   }
 
   private getUserProfile() {
+    const userInfo = this._sharedService.userInfo;
     this.isLoading = true;
-    this._userService.getUserProfile('66fda8708edd5a1be29d03f9').subscribe(res => {
+    this._userService.getUserProfile(userInfo.id).subscribe(res => {
       // console.log(res);
       this.isLoading = false;
       this.userForm.patchValue({
@@ -36,6 +38,7 @@ export class MyProfileComponent {
   })
 
   public updateProfile() {
+    const userInfo = this._sharedService.userInfo;
     const userForm = this.userForm.value;
     const userData = {
       ...(userForm.username ? { username: userForm.username } : {}),
@@ -44,7 +47,7 @@ export class MyProfileComponent {
     }
 
     this.isLoading = true;
-    this._userService.updateUserProfile('66fda8708edd5a1be29d03f9', userData).subscribe(res => {
+    this._userService.updateUserProfile(userInfo.id, userData).subscribe(res => {
       this.isLoading = false;
       Swal.fire({
         icon: 'success',
@@ -53,8 +56,8 @@ export class MyProfileComponent {
     }, (err) => {
       this.isLoading = false;
       Swal.fire({
-        icon: 'success',
-        title: err || 'Something went wrong!'
+        icon: 'error',
+        title: err.error.message || 'Something went wrong!'
       });
     });
   }

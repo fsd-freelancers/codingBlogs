@@ -9,9 +9,14 @@ import { ViewBlogsComponent } from './modules/blogs/view-blogs/view-blogs.compon
 import { SearchBlogsComponent } from './modules/blogs/search-blogs/search-blogs.component';
 import { MyProfileComponent } from './modules/user/my-profile/my-profile.component';
 import { MyBlogsComponent } from './modules/user/my-blogs/my-blogs.component';
+import { LoginComponent } from './modules/auth/login/login.component';
+import { RegisterComponent } from './modules/auth/register/register.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'blogs', pathMatch: 'full' },
+  { path: 'sign-in', component: LoginComponent },
+  { path: 'sign-up', component: RegisterComponent },
+  { path: 'my-blogs', component: MyBlogsComponent },
   {
     path: 'blogs', component: ContentLayoutComponent, children: [
       { path: '', component: HomeComponent },

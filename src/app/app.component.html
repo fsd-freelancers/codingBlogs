@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="!isLoginPage">
   <header class="sticky top-0 z-50">
     <app-header></app-header>
   </header>
@@ -9,3 +9,7 @@
     <app-footer></app-footer>
   </footer>
 </div>
+
+<ng-container *ngIf="isLoginPage">
+  <router-outlet></router-outlet>
+</ng-container>

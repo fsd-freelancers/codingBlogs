@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { BlogService } from '../services/blog.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
   selector: 'app-write-blogs',
@@ -14,7 +15,7 @@ export class WriteBlogsComponent {
   ];
   public isLoading: boolean = false;
 
-  constructor(private _blogService: BlogService) { }
+  constructor(private _blogService: BlogService, public _sharedService: SharedService) { }
 
   ngOnInit() { }
 

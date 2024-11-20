@@ -82,3 +82,13 @@ body {
     background-color: #0284c7;
   }
 }
+
+// common css
+.link {
+  color: #0ea5e9;
+  cursor: pointer;
+
+  :hover {
+    color: #0284c7;
+  }
+}
