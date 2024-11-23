@@ -26,6 +26,7 @@ const routes: Routes = [
   { path: 'blogs/:tag', component: ViewBlogsComponent },
   { path: 'blogs/search/:searchedText', component: SearchBlogsComponent },
   { path: 'write', component: WriteBlogsComponent },
+  { path: 'update/:blogId', component: WriteBlogsComponent },
   { path: 'faqs', component: FaqsComponent },
   { path: 'my-profile', component: MyProfileComponent },
   { path: 'my-blogs', component: MyBlogsComponent },

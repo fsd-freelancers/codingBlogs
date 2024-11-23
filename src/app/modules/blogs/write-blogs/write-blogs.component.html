@@ -17,7 +17,7 @@
 
         <ng-container *ngIf="_sharedService.isToken">
             <div class="mb-5 text-2xl">
-                <h1 class="text-black font-medium text-center">Write Your Blog</h1>
+                <h1 class="text-black font-medium text-center"> {{blogId ? 'Update' : 'Write'}} Your Blog</h1>
             </div>
 
             <div class="w-full lg:w-2/4 mx-auto">
@@ -76,7 +76,7 @@
                 <div class="mt-8 flex items-center justify-end gap-x-6">
                     <button class="text-sm font-semibold leading-6 text-gray-900"
                         (click)="blogForm.reset()">Cancel</button>
-                    <button [disabled]="isLoading" (click)="createBlog()" class="primary-btn">Save</button>
+                    <button [disabled]="isLoading" (click)="saveBlog()" class="primary-btn">Save</button>
                 </div>
             </div>
         </ng-container>
