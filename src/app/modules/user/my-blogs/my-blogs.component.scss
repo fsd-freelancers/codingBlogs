@@ -1,0 +1,53 @@
+.imgDiv {
+    overflow: hidden;
+    cursor: pointer;
+
+    img {
+        // position: relative;
+        z-index: -2;
+        scale: 1;
+        transition: ease .5s;
+
+        &:hover {
+            scale: 1.1;
+        }
+    }
+
+}
+
+.blog-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    &:hover {
+        color: #38bdf8;
+        text-decoration: underline;
+    }
+}
+
+.options-container {
+    position: relative;
+
+
+    .options {
+        position: absolute;
+        background-color: #fefeff;
+        box-shadow: #00000005 0 1px 3px, #0000001a 0 0 0 1px;
+        padding: 10px;
+        border-radius: 6px;
+        top: -82px;
+        right: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        font-size: 16px;
+        user-select: none;
+
+        p{
+            cursor: pointer;
+        }
+    }
+}

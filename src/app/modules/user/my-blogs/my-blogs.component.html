@@ -8,9 +8,10 @@
         <h1 class="text-black font-medium capitalize">My Blogs</h1>
     </div> -->
     <div class="grid grid-cols-3 gap-6 px-2 mt-2">
-        <div class="col-span-3 md:col-span-1 shadow-sm border rounded overflow-hidden" *ngFor="let blog of blogDetail">
-            <div class="w-full" [routerLink]="'/blogs/details/'+blog?.id">
-                <div class="h-44 imgDiv">
+        <div class="col-span-3 md:col-span-1 shadow-sm border rounded overflow-hidden"
+            *ngFor="let blog of blogDetail; let i=index">
+            <div class="w-full">
+                <div class="h-44 imgDiv" [routerLink]="'/blogs/details/'+blog?.id">
                     <img class="w-full h-full" [src]="'/assets/images/'+blog?.image">
                 </div>
                 <div class="h-52 px-4 py-6 bg-white flex flex-col justify-between">
@@ -19,7 +20,8 @@
                             <span class="bg-sky-400 text-white p-1 mr-1 rounded hover:underline"
                                 *ngFor="let tag of blog?.tags">#{{tag}}</span>
                         </p>
-                        <h1 class="text-black text-xl blog-title cursor-pointer"><a>{{blog?.title}}</a></h1>
+                        <h1 class="text-black text-xl blog-title cursor-pointer"
+                            [routerLink]="'/blogs/details/'+blog?.id"><a>{{blog?.title}}</a></h1>
                     </div>
                     <div class="flex justify-between items-center">
                         <p class="text-sm text-slate-500 flex flex-col gap-1">
@@ -27,8 +29,29 @@
                             <span class="flex items-center"><i class="far fa-clock text-sm mr-1"></i>
                                 <span>{{blog?.createdAt | date}}</span></span>
                         </p>
-                        <p class="text-sm text-slate-500 flex items-center cursor-pointer hover:text-slate-600"
-                            (click)="_sharedService.shareBlog(blog)"><i class="fa fa-share mr-1"></i>Share</p>
+                        <div class="options-container">
+                            <i class="fas fa-ellipsis-v text-slate-500 text-lg cursor-pointer"
+                                (click)="toggleOptions($event,i)"></i>
+                            <ul #dropdown class="options" *ngIf="isOptions && activeDropdownIndex == i">
+                                <li>
+                                    <p (click)="_sharedService.shareBlog(blog)"
+                                        class="flex items-center gap-1 text-slate-500 hover:underline"><i
+                                            class="fa fa-share"></i><span>Share</span></p>
+                                </li>
+                                <li>
+                                    <p [routerLink]="'/update/'+blog?.id"
+                                        class="flex items-center gap-1 text-sky-500 hover:underline"><i
+                                            class="fa fa-edit"></i><span>Update</span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p (click)="onDeleteBlog(blog?.id)"
+                                        class="flex items-center gap-1 text-red-500 hover:underline"><i
+                                            class="fa fa-trash-o"></i><span>Delete</span>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

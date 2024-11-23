@@ -33,6 +33,18 @@ export class BlogService {
     return this.http.post(url, data);
   }
 
+  // update blog 
+  updateBlog(blogId, data) {
+    const url = `${API_BASE_URL}/blog/update/${blogId}`;
+    return this.http.patch(url, data);
+  }
+
+  // delete blog 
+  deleteBlog(blogId) {
+    const url = `${API_BASE_URL}/blog/delete/${blogId}`;
+    return this.http.delete(url);
+  }
+
   // search blogs
   searchBlogs(searchedText) {
     const url = `${API_BASE_URL}/blog/search/${searchedText}`;
