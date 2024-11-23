@@ -1,6 +1,10 @@
-<app-loader *ngIf="isLoading"></app-loader>
+<div class="blog-detail border rounded md:mr-5" *ngIf="isLoading">
+    <div class="col-span-2 md:col-span-1 shadow-sm border rounded overflow-hidden">
+        <app-skeleton-loader></app-skeleton-loader>
+    </div>
+</div>
 
-<div class="blog-detail border rounded md:mr-5">
+<div class="blog-detail border rounded md:mr-5" *ngIf="!isLoading">
     <h1 class="title text-3xl"> {{blogDetail?.title}} </h1>
     <div class="my-4 flex justify-between items-center">
         <p class="text-sm text-slate-500 flex flex-col md:flex-row">

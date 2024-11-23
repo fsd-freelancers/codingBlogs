@@ -26,7 +26,7 @@ export class BreadcrumbComponent {
   }
 
   updateUrl() {
-    const isBlogId = this.actRoute?.snapshot?.routeConfig?.children?.[1]?.path == 'details/:blogId';
+    const isBlogId = this.actRoute.snapshot.params['blogId'] || this.actRoute?.snapshot?.routeConfig?.children?.[1]?.path == 'details/:blogId';
     let routerUrl = this.router.url;
     let updateRouterUrl = routerUrl.split('/').slice(1);
 

@@ -28,8 +28,12 @@ export class WriteBlogsComponent {
   }
 
   private getBlogDetails() {
+    this.isLoading = true;
     this._blogService.getBlogDetail(this.blogId).subscribe(res => {
       this.patchBlogForm(res);
+      this.isLoading = false;
+    }, (err) => {
+      this.isLoading = false;
     })
   }
 
