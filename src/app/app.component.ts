@@ -9,7 +9,7 @@ import { NavigationEnd, Router } from '@angular/router';
 export class AppComponent {
   title = 'blogs';
   public isLoginPage: boolean = false;
-  private urls = ['/sign-in', '/sign-up'];
+  private urls = ['/sign-in', '/sign-up', '/forgot-password'];
 
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
