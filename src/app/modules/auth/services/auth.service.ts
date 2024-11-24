@@ -19,4 +19,9 @@ export class AuthService {
     return this.http.post(url, data);
   }
 
+  verifyEmail(data) {
+    const url = `${API_BASE_URL}/auth/verify-email`;
+    return this.http.post(url, data);
+  }
+
 }

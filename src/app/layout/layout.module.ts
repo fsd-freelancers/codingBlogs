@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { HomeSidenavComponent } from './home-sidenav/home-sidenav.component';
 import { SharedModule } from '../shared/shared.module';
 import { FooterComponent } from './footer/footer.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -16,7 +17,8 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     ContentLayoutComponent,
     HomeSidenavComponent,
-    FooterComponent
+    FooterComponent,
+    PageNotFoundComponent
   ],
   imports: [
     CommonModule,
