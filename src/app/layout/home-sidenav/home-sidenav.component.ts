@@ -56,4 +56,11 @@ export class HomeSidenavComponent {
     }
   }
 
+  onSubscribeNow() {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth'
+    })
+  }
+
 }

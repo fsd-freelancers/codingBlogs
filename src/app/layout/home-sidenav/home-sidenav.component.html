@@ -2,18 +2,42 @@
     <div class="text-2xl mb-4">
         <h1 class="text-black font-medium">Table of Content</h1>
     </div>
-    <ul class="pl-5">
-        <li class="text-slate-500 hover:text-sky-500" (click)="onStories()"><i
-                class='fa fa-angle-right mr-2'></i>Featured Stories</li>
-        <li class="text-slate-500 hover:text-sky-500" (click)="onLatest()"><i class='fa fa-angle-right mr-2'></i>Latest
-            Blogs</li>
-        <li class="text-slate-500 hover:text-sky-500" (click)="onFrontend()"><i
-                class='fa fa-angle-right mr-2'></i>Frontend Blogs</li>
-        <li class="text-slate-500 hover:text-sky-500" (click)="onBackend()"><i
-                class='fa fa-angle-right mr-2'></i>Backend Blogs
+    <ul class="pl-5 flex flex-col gap-1">
+        <li>
+            <div class="text-slate-500 hover:text-sky-500 flex items-center gap-2" (click)="onStories()">
+                <i class='fas fa-book-open text-base'></i> <span>Featured Stories</span>
+            </div>
         </li>
-        <li class="text-slate-500 hover:text-sky-500" (click)="onFullstack()"><i
-                class='fa fa-angle-right mr-2'></i>Full-stack Blogs</li>
+        <li>
+            <div class="text-slate-500 hover:text-sky-500 flex items-center gap-2" (click)="onLatest()">
+                <i class='fas fa-newspaper text-base'></i>
+                <span>Latest Blogs</span>
+            </div>
+        </li>
+        <li>
+            <div class="text-slate-500 hover:text-sky-500 flex items-center gap-2" (click)="onFrontend()">
+                <i class='fas fa-window-maximize text-base'></i>
+                <span>Frontend Blogs</span>
+            </div>
+        </li>
+        <li>
+            <div class="text-slate-500 hover:text-sky-500 flex items-center gap-2" (click)="onBackend()">
+                <i class='fas fa-server text-base'></i>
+                <span>Backend Blogs</span>
+            </div>
+        </li>
+        <li>
+            <div class="text-slate-500 hover:text-sky-500 flex items-center gap-2" (click)="onFullstack()">
+                <i class='fas fa-layer-group text-base'></i>
+                <span>Full-stack Blogs</span>
+            </div>
+        </li>
+        <li>
+            <div class="text-slate-500 hover:text-sky-500 flex items-center gap-2" (click)="onSubscribeNow()">
+                <i class='fas fa-paper-plane text-base'></i>
+                <span>Subscribe Now</span>
+            </div>
+        </li>
     </ul>
 </div>
 
