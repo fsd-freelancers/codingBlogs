@@ -24,4 +24,14 @@ export class AuthService {
     return this.http.post(url, data);
   }
 
+  verifyPassword(data) {
+    const url = `${API_BASE_URL}/auth/verify-password`;
+    return this.http.post(url, data);
+  }
+
+  resetPassword(data) {
+    const url = `${API_BASE_URL}/auth/reset-password`;
+    return this.http.post(url, data);
+  }
+
 }
