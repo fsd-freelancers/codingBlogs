@@ -27,4 +27,10 @@ export class UserService {
     return this.http.get(url);
   }
 
+  // add subscriber
+  addSubscriber(data) {
+    const url = `${API_BASE_URL}/user/subscribe`;
+    return this.http.post(url, data);
+  }
+
 }
