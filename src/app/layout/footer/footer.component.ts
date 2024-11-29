@@ -27,6 +27,12 @@ export class FooterComponent {
           icon: 'success',
           title: res['message']
         });
+      }, (err) => {
+        this.isLoading = false;
+        Swal.fire({
+          icon: 'error',
+          title: err.error.message
+        })
       });
     } else {
       Swal.fire({
