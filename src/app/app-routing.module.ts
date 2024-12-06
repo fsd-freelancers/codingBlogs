@@ -13,6 +13,7 @@ import { LoginComponent } from './modules/auth/login/login.component';
 import { RegisterComponent } from './modules/auth/register/register.component';
 import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
 import { ForgotPasswordComponent } from './modules/auth/forgot-password/forgot-password.component';
+import { DashboardComponent } from './modules/admin/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'blogs', pathMatch: 'full' },
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'write', component: WriteBlogsComponent },
   { path: 'update/:blogId', component: WriteBlogsComponent },
   { path: 'faqs', component: FaqsComponent },
+  { path: 'admin/dashboard', component: DashboardComponent },
   { path: 'my-profile', component: MyProfileComponent },
   { path: 'my-blogs', component: MyBlogsComponent },
   { path: '**', component: PageNotFoundComponent },
