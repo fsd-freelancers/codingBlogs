@@ -17,6 +17,15 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "@amcharts/amcharts4",
+              "sweetalert2",
+              "core-js",
+              "pdfmake",
+              "@babel/runtime/regenerator",
+              "raf",
+              "rgbcolor"
+            ],
             "outputPath": "dist/blogs",
             "index": "src/index.html",
             "main": "src/main.ts",

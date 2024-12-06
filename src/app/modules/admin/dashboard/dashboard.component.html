@@ -1,6 +1,12 @@
+<app-loader *ngIf="isLoading"></app-loader>
+
 <div class="mx-3 md:mx-12 lg:mx-24">
     <div class="mt-4 mb-3">
         <app-breadcrumb></app-breadcrumb>
     </div>
 
+    <div class="chartDiv border-top rounded-md">
+        <h2>Blog details by tags - </h2>
+        <div #chartdiv class="chart"></div>
+    </div>
 </div>
