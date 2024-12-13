@@ -1,11 +1,12 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { API_BASE_URL } from 'src/app/api.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
-
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   // Getter for user_info
   public get userInfo(): any {
@@ -32,4 +33,10 @@ export class SharedService {
     }
   }
 
+  // test api
+  testApi() {
+    const url = `${API_BASE_URL}/test/server`;
+    return this.http.get(url)
+  }
+  
 }

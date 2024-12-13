@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { SharedService } from './shared/services/shared.service';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,11 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'blogs';
   public isLoginPage: boolean = false;
   private urls = ['/sign-in', '/sign-up', '/forgot-password'];
+  public isServerStarted: boolean = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private _sharedService: SharedService) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         if (this.urls.includes(event.url)) {
@@ -21,6 +22,16 @@ export class AppComponent {
         }
       }
     });
+  }
+
+  ngOnInit() {
+    this.testApi();
+  }
+
+  private testApi() {
+    this._sharedService.testApi().subscribe(() => {
+      this.isServerStarted = true;
+    })
   }
 
 }

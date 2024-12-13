@@ -4,6 +4,7 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { RouterModule } from '@angular/router';
 import { LoaderComponent } from './loader/loader.component';
 import { SkeletonLoaderComponent } from './skeleton-loader/skeleton-loader.component';
+import { PageLoaderComponent } from './page-loader/page-loader.component';
 
 
 
@@ -11,7 +12,8 @@ import { SkeletonLoaderComponent } from './skeleton-loader/skeleton-loader.compo
   declarations: [
     BreadcrumbComponent,
     LoaderComponent,
-    SkeletonLoaderComponent
+    SkeletonLoaderComponent,
+    PageLoaderComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { SkeletonLoaderComponent } from './skeleton-loader/skeleton-loader.compo
   exports: [
     BreadcrumbComponent,
     LoaderComponent,
-    SkeletonLoaderComponent
+    SkeletonLoaderComponent,
+    PageLoaderComponent
   ]
 })
 export class SharedModule { }
