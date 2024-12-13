@@ -22,11 +22,11 @@
                     <li class="text-slate-500"><a routerLink="/blogs/angular">Angular</a></li>
                 </ul>
             </li>
-            <ul class="md:hidden" *ngIf="isTopics" (mouseleave)="onTopics()">
-                <li class="text-slate-500 mb-2"><a routerLink="/blogs/html">HTML</a></li>
-                <li class="text-slate-500 mb-2"><a routerLink="/blogs/css">CSS</a></li>
-                <li class="text-slate-500 mb-2"><a routerLink="/blogs/javascript">JavaScript</a></li>
-                <li class="text-slate-500 mb-2"><a routerLink="/blogs/angular">Angular</a></li>
+            <ul class="mobTopics md:hidden" *ngIf="isTopics" (mouseleave)="onTopics()">
+                <li class="text-slate-500"><a routerLink="/blogs/html">HTML</a></li>
+                <li class="text-slate-500"><a routerLink="/blogs/css">CSS</a></li>
+                <li class="text-slate-500"><a routerLink="/blogs/javascript">JavaScript</a></li>
+                <li class="text-slate-500"><a routerLink="/blogs/angular">Angular</a></li>
             </ul>
             <li class="flex items-center justify-center"><a class="text-slate-500 hover:text-sky-500 font-medium"
                     routerLink="/write">Write</a><img class="w-4 h-4 ml-1.5" src="/assets/icons/edit.png" alt="img">

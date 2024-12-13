@@ -94,6 +94,22 @@ nav {
                     font-size: 20px;
                 }
             }
+
+            .mobTopics {
+                :first-child {
+                    margin-top: 0px !important;
+                }
+
+                :last-child {
+                    margin-bottom: 8px !important;
+                }
+
+                li {
+                    margin: 16px 0 !important;
+
+
+                }
+            }
         }
 
         .show {
